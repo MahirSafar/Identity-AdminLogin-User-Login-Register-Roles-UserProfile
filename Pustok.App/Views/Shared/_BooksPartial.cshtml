@@ -1,0 +1,52 @@
+﻿@model List<Book>
+
+@foreach (var item in Model)
+{
+    <div class="single-slide">
+        <div class="product-card">
+            <div class="product-header">
+                <a asp-controller="book" asp-action="detail" asp-route-id="@item.Id" class="author">
+                    @item.Author.Name
+                </a>
+                <h3>
+                    <a asp-controller="book" asp-action="detail" asp-route-id="@item.Id">
+                        @item.Title
+                    </a>
+                </h3>
+            </div>
+            <div class="product-card--body">
+                <div class="card-image">
+                    <img src="~/assets/image/products/@item.MainImageUrl" alt="">
+                    <div class="hover-contents">
+                        <a asp-controller="book" asp-action="detail" asp-route-id="@item.Id" class="hover-image">
+                            <img src="~/assets/image/products/@item.HoverImageUrl" alt="">
+                        </a>
+                        <div class="hover-btns">
+                            <a href="cart.html" class="single-btn">
+                                <i class="fas fa-shopping-basket"></i>
+                            </a>
+                            <a href="wishlist.html" class="single-btn">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="compare.html" class="single-btn">
+                                <i class="fas fa-random"></i>
+                            </a>
+                            <a asp-controller="book" asp-action="bookmodal" asp-route-id="@item.Id" data-bs-toggle="modal" data-bs-target="#quickModal"
+                               class="single-btn bookModal">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-block">
+                    <span class="price">$@((item.Price - (item.Price * item.DiscountPercentage) / 100).ToString("0.00"))</span>
+                    @if (item.DiscountPercentage > 0)
+                    {
+                        <del class="price-old">£@item.Price</del>
+                        <span class="price-discount">@item.DiscountPercentage.ToString("0.##")% OFF</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

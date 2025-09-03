@@ -1,0 +1,229 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pustok.App.DAL.Context;
+using Pustok.App.Extensions;
+using Pustok.App.Models;
+
+namespace Pustok.App.Areas.Manage.Controllers
+{
+    [Area("Manage")]
+    public class BookController : Controller
+    {
+        private readonly PustokDbContext _pustokDbContext;
+
+        public BookController(PustokDbContext pustokDbContext)
+        {
+            _pustokDbContext = pustokDbContext;
+        }
+        public IActionResult Index()
+        {
+            var books = _pustokDbContext.Books
+                .Include(b => b.Author)
+                .Include(b => b.Genre)
+                .ToList();
+            return View(books);
+        }
+        public IActionResult Delete(int id)
+        {
+            var book = _pustokDbContext.Books
+                .Include(m=>m.BookImages)
+                .FirstOrDefault(m=>m.Id == id);
+            if (book == null) return NotFound();
+            _pustokDbContext.Books.Remove(book);
+            _pustokDbContext.SaveChanges();
+
+            FileManager.DeleteFile("products", book.MainImageUrl);
+            FileManager.DeleteFile("products", book.HoverImageUrl);
+            foreach (var item in book.BookImages)
+                FileManager.DeleteFile("products", item.ImageUrl);
+
+            return Ok();
+        }
+        public IActionResult Create()
+        {
+            ViewBag.Authors = _pustokDbContext.Authors.ToList();
+            ViewBag.Genres = _pustokDbContext.Genres.ToList();
+            ViewBag.Tags = _pustokDbContext.Tags.ToList();
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Book book)
+        {
+            ViewBag.Authors = _pustokDbContext.Authors.ToList();
+            ViewBag.Genres = _pustokDbContext.Genres.ToList();
+            ViewBag.Tags = _pustokDbContext.Tags.ToList();
+            if (!ModelState.IsValid) return View(book);
+
+            if (!_pustokDbContext.Authors.Any(x => x.Id == book.AuthorId))
+            {
+                ModelState.AddModelError("AuthorId", "Author not found.");
+                return View(book);
+            }
+            if (!_pustokDbContext.Genres.Any(x => x.Id == book.GenreId))
+            {
+                ModelState.AddModelError("GenreId", "Genre not found.");
+                return View(book);
+            }
+
+            foreach (var item in book.TagsId)
+            {
+                if (!_pustokDbContext.Tags.Any(x => x.Id == item))
+                {
+                    ModelState.AddModelError("TagId", "Tag not found.");
+                    return View(book);
+                }
+            }
+            foreach (var item in book.TagsId)
+            {
+                var bookTag = new BookTag
+                {
+                    TagId = item,
+                    BookId = book.Id
+                };
+                book.BookTags.Add(bookTag);
+            }
+            if (book.MainPhoto == null)
+            {
+                ModelState.AddModelError("MainPhoto", "Main photo is required.");
+                return View(book);
+            }
+            if(book.HoverPhoto == null)
+            {
+                ModelState.AddModelError("HoverPhoto", "Hover photo is required.");
+                return View(book);
+            }
+            book.MainImageUrl = book.MainPhoto.SaveFile("products");
+            book.HoverImageUrl = book.HoverPhoto.SaveFile("products");
+            if (book.Photos != null)
+            {
+                foreach (var photo in book.Photos)
+                {
+                    var bookImage = new BookImage
+                    {
+                        ImageUrl = photo.SaveFile("products")
+                    };
+                    book.BookImages.Add(bookImage);
+                }
+            }
+            _pustokDbContext.Books.Add(book);
+            _pustokDbContext.SaveChanges();
+            return RedirectToAction("Index"); 
+        }
+        public IActionResult Edit(int id)
+        {
+            var book = _pustokDbContext.Books
+                .Include(b => b.BookTags)
+                .Include(b => b.BookImages)
+                .FirstOrDefault(b => b.Id == id);
+            if (book == null) return NotFound();
+            ViewBag.Authors = _pustokDbContext.Authors.ToList();
+            ViewBag.Genres = _pustokDbContext.Genres.ToList();
+            ViewBag.Tags = _pustokDbContext.Tags.ToList();
+            book.TagsId = book.BookTags.Select(bt => bt.TagId).ToList(); 
+            return View(book);
+        }
+        public IActionResult DeleteImage(int id)
+        {
+            var bookImage = _pustokDbContext.BookImages.FirstOrDefault(bi => bi.Id == id);
+            if (bookImage == null) return NotFound();
+            FileManager.DeleteFile("products", bookImage.ImageUrl);
+            _pustokDbContext.BookImages.Remove(bookImage);
+            _pustokDbContext.SaveChanges();
+            return RedirectToAction(nameof(Edit), new { id = bookImage.BookId});
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Book book)
+        {
+            ViewBag.Authors = _pustokDbContext.Authors.ToList();
+            ViewBag.Genres = _pustokDbContext.Genres.ToList();
+            ViewBag.Tags = _pustokDbContext.Tags.ToList();
+            var existBook = _pustokDbContext.Books
+                .Include(b => b.BookTags)
+                .Include(b => b.BookImages)
+                .FirstOrDefault(b => b.Id == book.Id);
+            if (existBook == null) return NotFound();
+            if (!ModelState.IsValid) return View(existBook);
+            if (!_pustokDbContext.Authors.Any(x => x.Id == book.AuthorId))
+            {
+                ModelState.AddModelError("AuthorId", "Author not found.");
+                return View(existBook);
+            }
+            if (!_pustokDbContext.Genres.Any(x => x.Id == book.GenreId))
+            {
+                ModelState.AddModelError("GenreId", "Genre not found.");
+                return View(existBook);
+            }
+            foreach (var item in book.TagsId)
+            {
+                if (!_pustokDbContext.Tags.Any(x => x.Id == item))
+                {
+                    ModelState.AddModelError("TagId", "Tag not found.");
+                    return View(existBook);
+                }
+            }
+            existBook.BookTags.RemoveAll(bt => !book.TagsId.Contains(bt.TagId));
+            var existTagIds = existBook.BookTags.Select(bt => bt.TagId).ToList();
+            var newTagIds = book.TagsId.Except(existTagIds).ToList();
+
+            foreach (var item in newTagIds)
+            {
+                var bookTag = new BookTag
+                {
+                    TagId = item,
+                    BookId = book.Id
+                };
+                existBook.BookTags.Add(bookTag);
+            }
+            if (book.MainPhoto != null)
+            {
+                FileManager.DeleteFile("products", existBook.MainImageUrl);
+                existBook.MainImageUrl = book.MainPhoto.SaveFile("products");
+            }
+            if (book.HoverPhoto != null)
+            {
+                FileManager.DeleteFile("products", existBook.HoverImageUrl);
+                existBook.HoverImageUrl = book.HoverPhoto.SaveFile("products");
+            }
+            if (book.Photos != null)
+            {
+                foreach (var photo in book.Photos)
+                {
+                    var bookImage = new BookImage
+                    {
+                        ImageUrl = photo.SaveFile("products")
+                    };
+                    existBook.BookImages.Add(bookImage);
+                }
+            }
+            existBook.Title = book.Title;
+            existBook.Description = book.Description;
+            existBook.Price = book.Price;
+            existBook.DiscountPercentage = book.DiscountPercentage;
+            existBook.IsFeatured = book.IsFeatured;
+            existBook.IsNew = book.IsNew;
+            existBook.Code = book.Code;
+            existBook.Title = book.Title;
+            existBook.AuthorId = book.AuthorId;
+            existBook.GenreId = book.GenreId;
+            existBook.StockCount = book.StockCount;
+            _pustokDbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Detail(int id)
+        {
+            var book = _pustokDbContext.Books
+                .Include(b => b.Author)
+                .Include(b => b.Genre)
+                .Include(b => b.BookImages)
+                .Include(b => b.BookTags)
+                    .ThenInclude(bt => bt.Tag)
+                .FirstOrDefault(b => b.Id == id);
+
+            if (book == null) return NotFound();
+
+            return View(book);
+        }
+    }
+}

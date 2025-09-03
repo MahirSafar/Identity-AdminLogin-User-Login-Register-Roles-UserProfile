@@ -1,0 +1,61 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pustok.App.DAL.Context;
+using Pustok.App.Extensions;
+
+namespace Pustok.App.Areas.Manage.Controllers
+{
+    [Area("Manage")]
+    public class BookController : Controller
+    {
+        private readonly PustokDbContext _pustokDbContext;
+        private readonly IWebHostEnvironment _env;
+
+        public BookController(PustokDbContext pustokDbContext, IWebHostEnvironment env)
+        {
+            _pustokDbContext = pustokDbContext;
+            _env = env;
+        }
+
+        public IActionResult Index()
+        {
+            var books = _pustokDbContext.Books
+                .Include(b => b.Author)
+                .Include(b => b.Genre)
+                .ToList();
+            return View(books);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var book = _pustokDbContext.Books
+                .Include(b => b.BookImages)
+                .FirstOrDefault(b => b.Id == id);
+
+            if (book == null) return NotFound();
+
+            // Delete main and hover images
+            if (!string.IsNullOrEmpty(book.MainImageUrl))
+                FileManager.DeleteFileFromRoot(_env.WebRootPath, book.MainImageUrl);
+            
+            if (!string.IsNullOrEmpty(book.HoverImageUrl))
+                FileManager.DeleteFileFromRoot(_env.WebRootPath, book.HoverImageUrl);
+
+            // Delete all associated book images
+            if (book.BookImages != null)
+            {
+                foreach (var image in book.BookImages)
+                {
+                    if (!string.IsNullOrEmpty(image.ImageUrl))
+                        FileManager.DeleteFileFromRoot(_env.WebRootPath, image.ImageUrl);
+                }
+            }
+
+            // Remove the book from database
+            _pustokDbContext.Books.Remove(book);
+            _pustokDbContext.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

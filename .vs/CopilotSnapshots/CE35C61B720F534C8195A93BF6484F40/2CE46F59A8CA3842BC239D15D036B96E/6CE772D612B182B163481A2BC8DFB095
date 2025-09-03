@@ -1,0 +1,35 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pustok.App.DAL.Context;
+using Pustok.App.Extensions;
+
+namespace Pustok.App.Areas.Manage.Controllers
+{
+    [Area("Manage")]
+    public class BookController(PustokDbContext pustokDbContext) : Controller
+    {
+        public IActionResult Index()
+        {
+            var books = pustokDbContext.Books
+                .Include(b => b.Author)
+                .Include(b => b.Genre)
+                .ToList();
+            return View(books);
+        }
+        public IActionResult Delete(int id)
+        {
+            var book = pustokDbContext.Books
+                .Include(m=>m.BookImages).Find(id);
+            if (book == null) return NotFound();
+            pustokDbContext.Books.Remove(book);
+            pustokDbContext.SaveChanges();
+
+            FileManager.DeleteFile("image/products", book.MainImageUrl);
+            FileManager.DeleteFile("image/products", book.HoverImageUrl);
+            foreach (var item in book.BookImages)
+                FileManager.DeleteFile("image/products", item.ImageUrl);
+
+            return Ok();
+        }
+    }
+}

@@ -1,0 +1,89 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Pustok.App.Models;
+
+namespace Pustok.App.DAL.Context
+{
+    public class PustokDbContext(DbContextOptions<PustokDbContext> options) : DbContext(options)
+    {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Seed Authors
+            modelBuilder.Entity<Author>().HasData(
+                new Author { Id = 1, Name = "J.K. Rowling" },
+                new Author { Id = 2, Name = "George R.R. Martin" },
+                new Author { Id = 3, Name = "J.R.R. Tolkien" }
+            );
+
+            // Seed Genres
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre { Id = 1, Name = "Fantasy" },
+                new Genre { Id = 2, Name = "Adventure" },
+                new Genre { Id = 3, Name = "Drama" }
+            );
+
+            // Seed Books
+            modelBuilder.Entity<Book>().HasData(
+                new Book {
+                    Id = 1,
+                    Title = "Harry Potter and the Philosopher's Stone",
+                    Description = "A young wizard's journey begins.",
+                    Price = 19.99m,
+                    DiscountPercentage = 0,
+                    IsFeatured = true,
+                    IsNew = true,
+                    Code = "HP1",
+                    AuthorId = 1,
+                    GenreId = 1,
+                    MainImageUrl = "/assets/image/book1.jpg",
+                    HoverImageUrl = "/assets/image/book1_hover.jpg",
+                    CreatedAt = DateTime.Now
+                },
+                new Book {
+                    Id = 2,
+                    Title = "A Game of Thrones",
+                    Description = "The first book in A Song of Ice and Fire.",
+                    Price = 24.99m,
+                    DiscountPercentage = 10,
+                    IsFeatured = true,
+                    IsNew = false,
+                    Code = "GOT1",
+                    AuthorId = 2,
+                    GenreId = 1,
+                    MainImageUrl = "/assets/image/book2.jpg",
+                    HoverImageUrl = "/assets/image/book2_hover.jpg",
+                    CreatedAt = DateTime.Now
+                },
+                new Book {
+                    Id = 3,
+                    Title = "The Hobbit",
+                    Description = "A hobbit's adventure to the Lonely Mountain.",
+                    Price = 15.99m,
+                    DiscountPercentage = 5,
+                    IsFeatured = false,
+                    IsNew = true,
+                    Code = "HOBBIT",
+                    AuthorId = 3,
+                    GenreId = 2,
+                    MainImageUrl = "/assets/image/book3.jpg",
+                    HoverImageUrl = "/assets/image/book3_hover.jpg",
+                    CreatedAt = DateTime.Now
+                }
+            );
+
+            // Seed BookImages
+            modelBuilder.Entity<BookImage>().HasData(
+                new BookImage { Id = 1, BookId = 1, ImageUrl = "/assets/image/book1_1.jpg" },
+                new BookImage { Id = 2, BookId = 1, ImageUrl = "/assets/image/book1_2.jpg" },
+                new BookImage { Id = 3, BookId = 2, ImageUrl = "/assets/image/book2_1.jpg" },
+                new BookImage { Id = 4, BookId = 3, ImageUrl = "/assets/image/book3_1.jpg" }
+            );
+        }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<BookImage> BookImages { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+    }
+}

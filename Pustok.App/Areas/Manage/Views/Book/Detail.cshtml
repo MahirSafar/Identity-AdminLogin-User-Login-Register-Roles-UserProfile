@@ -1,0 +1,326 @@
+﻿@model Book
+@{
+    ViewData["Title"] = $"Book Details - {Model.Title}";
+}
+
+<div class="book-detail-container">
+    <div class="book-detail-card">
+        <div class="book-detail-header">
+            <div>
+                <h2>@Model.Title</h2>
+                <div class="book-detail-breadcrumb">
+                    <a asp-area="manage" asp-controller="dashboard" asp-action="index">Dashboard</a>
+                    <span>/</span>
+                    <a asp-action="index">Books</a>
+                    <span>/</span>
+                    <span>@Model.Title</span>
+                </div>
+            </div>
+            <div>
+                <a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a asp-action="index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+        <div class="book-detail-body">
+            <div class="book-detail-gallery">
+                <img src="~/assets/image/products/@Model.MainImageUrl" class="main-img" alt="@Model.Title" id="mainBookImg" />
+                <img src="~/assets/image/products/@Model.HoverImageUrl" class="hover-img" alt="@Model.Title hover" />
+                @if (Model.BookImages != null && Model.BookImages.Any())
+                {
+                    <div class="gallery-thumbnails">
+                        @foreach (var image in Model.BookImages)
+                        {
+                            <img src="~/assets/image/products/@image.ImageUrl" class="thumbnail" alt="Additional image" />
+                        }
+                    </div>
+                }
+            </div>
+            <div class="book-detail-info">
+                <div class="info-section">
+                    <h4>Basic Information</h4>
+                    <div class="info-row"><span>Title:</span> <span>@Model.Title</span></div>
+                    <div class="info-row"><span>Author:</span> <span>@Model.Author?.Name</span></div>
+                    <div class="info-row"><span>Genre:</span> <span>@Model.Genre?.Name</span></div>
+                    <div class="info-row"><span>Code:</span> <span class="badge badge-secondary">@Model.Code</span></div>
+                </div>
+                <div class="info-section">
+                    <h4>Pricing & Stock</h4>
+                    <div class="info-row">
+                        <span>Price:</span>
+                        <span>
+                            <span class="price">$@Model.Price.ToString("0.00")</span>
+                            @if (Model.DiscountPercentage > 0)
+                            {
+                                <span class="old-price">$@((Model.Price / (1 - Model.DiscountPercentage / 100)).ToString("0.00"))</span>
+                            }
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span>Discount:</span>
+                        <span>
+                            @if (Model.DiscountPercentage > 0)
+                            {
+                                <span class="badge badge-danger">@Model.DiscountPercentage%</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No discount</span>
+                            }
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span>Stock:</span>
+                        <span>
+                            @if (Model.StockCount > 10)
+                            {
+                                <span class="badge badge-success">@Model.StockCount in stock</span>
+                            }
+                            else if (Model.StockCount > 0)
+                            {
+                                <span class="badge badge-warning">Low stock: @Model.StockCount</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Out of stock</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h4>Description</h4>
+                    <div class="info-row">
+                        <span>@Model.Description</span>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h4>Tags & Features</h4>
+                    <div class="info-row">
+                        <span>Tags:</span>
+                        <span>
+                            @if (Model.BookTags != null && Model.BookTags.Any())
+                            {
+                                foreach (var tag in Model.BookTags)
+                                {
+                                    <span class="badge badge-info">@tag.Tag?.Name</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="text-muted">No tags</span>
+                            }
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span>Features:</span>
+                        <span>
+                            @if (Model.IsNew)
+                            {
+                                <span class="badge badge-success">New</span>
+                            }
+                            @if (Model.IsFeatured)
+                            {
+                                <span class="badge badge-primary">Featured</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h4>Timestamps</h4>
+                    <div class="info-row">
+                        <span>Created:</span>
+                        <span>@Model.CreatedAt.ToString("MMM dd, yyyy HH:mm")</span>
+                    </div>
+                    @if (Model.UpdatedAt.HasValue)
+                    {
+                        <div class="info-row">
+                            <span>Last Updated:</span>
+                            <span>@Model.UpdatedAt.Value.ToString("MMM dd, yyyy HH:mm")</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        body {
+            background: #181824;
+        }
+        .book-detail-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+        .book-detail-card {
+            background: #23233a;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            padding: 0;
+            overflow: hidden;
+        }
+        .book-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: #20203a;
+            padding: 32px 32px 16px 32px;
+            border-bottom: 1px solid #2b2b40;
+        }
+        .book-detail-header h2 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .book-detail-breadcrumb {
+            font-size: 0.95rem;
+            color: #b0b0c3;
+        }
+        .book-detail-breadcrumb a {
+            color: #6cb4ff;
+            text-decoration: none;
+        }
+        .book-detail-breadcrumb span {
+            margin: 0 6px;
+        }
+        .book-detail-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            padding: 32px;
+        }
+        .book-detail-gallery {
+            flex: 1 1 320px;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .main-img, .hover-img {
+            width: 100%;
+            max-width: 320px;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #181824;
+            border: 2px solid #2b2b40;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 8px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .main-img:hover, .hover-img:hover {
+            box-shadow: 0 4px 24px rgba(108,180,255,0.18);
+            transform: scale(1.03);
+        }
+        .gallery-thumbnails {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #2b2b40;
+            background: #23233a;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .thumbnail:hover {
+            border-color: #6cb4ff;
+            transform: scale(1.07);
+        }
+        .book-detail-info {
+            flex: 2 1 400px;
+            color: #e0e0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .info-section {
+            background: #23233a;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(31,38,135,0.07);
+        }
+        .info-section h4 {
+            color: #6cb4ff;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .info-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        .info-row span:first-child {
+            min-width: 110px;
+            color: #b0b0c3;
+            font-weight: 500;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.8em;
+            font-size: 0.95em;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-right: 4px;
+        }
+        .badge-secondary { background: #2b2b40; color: #b0b0c3; }
+        .badge-success { background: #0bb783; color: #fff; }
+        .badge-warning { background: #ffa800; color: #fff; }
+        .badge-danger { background: #f64e60; color: #fff; }
+        .badge-info { background: #6cb4ff; color: #fff; }
+        .badge-primary { background: #8950fc; color: #fff; }
+        .price { color: #0bb783; font-weight: 600; }
+        .old-price { color: #b0b0c3; text-decoration: line-through; margin-left: 8px; }
+        .text-muted { color: #b0b0c3 !important; }
+        .btn {
+            padding: 0.5rem 1.2rem;
+            font-weight: 500;
+            border-radius: 6px;
+            border: none;
+            margin-left: 8px;
+            margin-bottom: 4px;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary {
+            background: #6cb4ff;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #4a90e2;
+        }
+        .btn-secondary {
+            background: #2b2b40;
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background: #181824;
+        }
+        
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Click thumbnail to set as main image
+        document.querySelectorAll('.thumbnail').forEach(function (thumb) {
+            thumb.addEventListener('click', function () {
+                document.getElementById('mainBookImg').src = this.src;
+            });
+        });
+    </script>
+}

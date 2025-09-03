@@ -1,0 +1,36 @@
+﻿@model UserLoginVm
+
+<div class="container">
+    <div class="row justify-content-center">
+		<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+			<form method="post">
+				<div class="login-form">
+					<h4 class="login-title">Returning Customer</h4>
+					<p><span class="font-weight-bold">I am a returning customer</span></p>
+					<div class="row">
+						<div class="col-md-12 col-12 mb--15">
+							<label asp-for="UsernameOrEmail" ></label>
+							<input asp-for="UsernameOrEmail" class="mb-0 form-control" 
+								   placeholder="Enter you email address here...">
+                            <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+						</div>
+						<div class="col-12 mb--20">
+							<label asp-for="Password"></label>
+							<input asp-for="Password" class="mb-0 form-control" type="password" id="login-password" placeholder="Enter your password">
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="col-12 mb--20">
+							<label asp-for="RememberMe"></label>
+							<input asp-for="RememberMe" >
+							<span asp-validation-for="RememberMe" class="text-danger"></span>
+						</div>
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-outlined">Login</button>
+						</div>
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Mahir\\Desktop\\PartialView\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\desktop\\partialview\\pustok.app\\viewmodels\\userupdateprofilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\viewmodels\\userupdateprofilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\desktop\\partialview\\pustok.app\\views\\shared\\_userprofilepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\views\\shared\\_userprofilepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\desktop\\partialview\\pustok.app\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\desktop\\partialview\\pustok.app\\views\\account\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\views\\account\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\desktop\\partialview\\pustok.app\\viewmodels\\userprofilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\viewmodels\\userprofilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_UserProfilePartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Views\\Shared\\_UserProfilePartial.cshtml",
+              "RelativeDocumentMoniker": "Pustok.App\\Views\\Shared\\_UserProfilePartial.cshtml",
+              "ToolTip": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Views\\Shared\\_UserProfilePartial.cshtml",
+              "RelativeToolTip": "Pustok.App\\Views\\Shared\\_UserProfilePartial.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-02T17:14:22.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserUpdateProfileVM.cs",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\ViewModels\\UserUpdateProfileVM.cs",
+              "RelativeDocumentMoniker": "Pustok.App\\ViewModels\\UserUpdateProfileVM.cs",
+              "ToolTip": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\ViewModels\\UserUpdateProfileVM.cs*",
+              "RelativeToolTip": "Pustok.App\\ViewModels\\UserUpdateProfileVM.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:07:41.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserProfileVm.cs",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\ViewModels\\UserProfileVm.cs",
+              "RelativeDocumentMoniker": "Pustok.App\\ViewModels\\UserProfileVm.cs",
+              "ToolTip": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\ViewModels\\UserProfileVm.cs",
+              "RelativeToolTip": "Pustok.App\\ViewModels\\UserProfileVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:07:09.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserProfile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Views\\Account\\UserProfile.cshtml",
+              "RelativeDocumentMoniker": "Pustok.App\\Views\\Account\\UserProfile.cshtml",
+              "ToolTip": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Views\\Account\\UserProfile.cshtml",
+              "RelativeToolTip": "Pustok.App\\Views\\Account\\UserProfile.cshtml",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAAALkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-02T17:04:41.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Pustok.App\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Mahir\\Desktop\\PartialView\\Pustok.App\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Pustok.App\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAAGsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:03:37.231Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
