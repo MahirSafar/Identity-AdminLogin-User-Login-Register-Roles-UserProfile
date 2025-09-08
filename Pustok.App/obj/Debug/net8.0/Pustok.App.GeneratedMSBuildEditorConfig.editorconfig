@@ -17,133 +17,137 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pustok.App
 build_property.RootNamespace = Pustok.App
-build_property.ProjectDir = C:\Users\Mahir\Desktop\PartialView\Pustok.App\
+build_property.ProjectDir = C:\Users\Mahir\Saved Games\PartialView\Pustok.App\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Mahir\Desktop\PartialView\Pustok.App
+build_property.MSBuildProjectDirectory = C:\Users\Mahir\Saved Games\PartialView\Pustok.App
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Account/Login.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEFjY291bnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Book/Create.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Book/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJvb2tcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Book/Detail.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Book/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJvb2tcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Book/Edit.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Book/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJvb2tcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Book/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJvb2tcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Dashboard/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Genre/Create.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Genre/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEdlbnJlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Genre/Edit.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Genre/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEdlbnJlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Genre/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Genre/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEdlbnJlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfQWRtaW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Shared/_DetailModal.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Shared/_DetailModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfRGV0YWlsTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Shared/_SliderDetailModal.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Shared/_ImportDataPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfSW1wb3J0RGF0YVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Shared/_SliderDetailModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfU2xpZGVyRGV0YWlsTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Slider/Create.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Slider/Edit.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Slider/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/Slider/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/Slider/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/_ViewImports.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Areas/Manage/Views/_ViewStart.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Areas/Manage/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Account/Login.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Account/Register.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Account/UserProfile.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Account/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Basket/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Basket/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Book/Detail.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Book/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Error/Error.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Error/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Home/Index.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Shared/_BookModal.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Shared/_BookModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Shared/_BooksPartial.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Shared/_BooksPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Shared/_UserProfilePartial.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Shared/_UserProfilePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyUHJvZmlsZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/_ViewImports.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/_ViewStart.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mahir/Desktop/PartialView/Pustok.App/Views/Shared/_Layout.cshtml]
+[C:/Users/Mahir/Saved Games/PartialView/Pustok.App/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-d8em6zsx8i

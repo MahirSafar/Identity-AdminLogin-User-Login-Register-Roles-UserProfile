@@ -1,0 +1,328 @@
+﻿@{
+    var allowedExtensions = new[] { ".xlsx", ".xls", ".csv" };
+}
+
+<div class="import-data-container">
+    <div class="import-card">
+        <div class="import-header">
+            <i class="fas fa-file-import"></i>
+            <h3>Import Data</h3>
+        </div>
+
+        <form asp-action="ImportData" asp-controller="Book" asp-area="Manage" method="post" enctype="multipart/form-data" class="import-form" id="importForm">
+            <div class="drag-area" id="dragArea">
+                <div class="icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h4>Drag & Drop</h4>
+                <span>OR</span>
+                <button type="button" class="browse-btn">Browse File</button>
+                <input type="file" name="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+                <p class="supported-text">Supported formats: XLSX, XLS, CSV</p>
+            </div>
+
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-details">
+                    <i class="fas fa-file-excel file-icon"></i>
+                    <div class="file-text">
+                        <h5 id="fileName">filename.xlsx</h5>
+                        <p id="fileSize">0 KB</p>
+                    </div>
+                    <button type="button" class="remove-file" id="removeFile">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <button type="submit" class="import-btn">
+                    <i class="fas fa-file-import"></i>
+                    Import Data
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .import-data-container {
+        padding: 20px;
+    }
+
+    .import-card {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.08);
+        padding: 25px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .import-header {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2b2b40;
+    }
+
+    .import-header i {
+        font-size: 2.5em;
+        color: #6B73FF;
+        margin-bottom: 15px;
+    }
+
+    .import-header h3 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    .drag-area {
+        border: 2px dashed #6B73FF;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .drag-area.active {
+        border-color: #00bf9a;
+        background: rgba(0,191,154,0.05);
+    }
+
+    .drag-area .icon {
+        font-size: 50px;
+        color: #6B73FF;
+    }
+
+    .drag-area h4 {
+        font-size: 20px;
+        font-weight: 500;
+        color: #2b2b40;
+        margin: 15px 0;
+    }
+
+    .drag-area span {
+        font-size: 14px;
+        color: #777;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .browse-btn {
+        padding: 10px 25px;
+        background: #6B73FF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 0;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .browse-btn:hover {
+        background: #5158CC;
+        transform: translateY(-2px);
+    }
+
+    .supported-text {
+        color: #999;
+        font-size: 13px;
+        margin: 10px 0 0;
+    }
+
+    .file-info {
+        margin-top: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .file-details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .file-icon {
+        font-size: 24px;
+        color: #6B73FF;
+        margin-right: 15px;
+    }
+
+    .file-text {
+        flex: 1;
+    }
+
+    .file-text h5 {
+        margin: 0;
+        color: #2b2b40;
+        font-size: 16px;
+    }
+
+    .file-text p {
+        margin: 5px 0 0;
+        color: #777;
+        font-size: 13px;
+    }
+
+    .remove-file {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .remove-file:hover {
+        color: #bd2130;
+        transform: scale(1.1);
+    }
+
+    .import-btn {
+        width: 100%;
+        padding: 12px;
+        background: #00bf9a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .import-btn:hover {
+        background: #00a085;
+        transform: translateY(-2px);
+    }
+
+    .import-btn i {
+        font-size: 18px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dragArea = document.getElementById('dragArea');
+        const fileInput = document.getElementById('fileInput');
+        const browseBtn = document.querySelector('.browse-btn');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const removeFile = document.getElementById('removeFile');
+        const importForm = document.getElementById('importForm');
+
+        browseBtn.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', function () {
+            handleFile(this.files[0]);
+        });
+
+        dragArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dragArea.classList.add('active');
+        });
+
+        dragArea.addEventListener('dragleave', () => {
+            dragArea.classList.remove('active');
+        });
+
+        dragArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragArea.classList.remove('active');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        removeFile.addEventListener('click', () => {
+            fileInput.value = '';
+            fileInfo.style.display = 'none';
+            dragArea.style.display = 'block';
+        });
+
+        function handleFile(file) {
+            if (file) {
+                const extension = '.' + file.name.split('.').pop().toLowerCase();
+                const allowedExtensions = ['.xlsx', '.xls', '.csv'];
+
+                if (!allowedExtensions.includes(extension)) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid File',
+                        text: 'Please upload an Excel or CSV file'
+                    });
+                    return;
+                }
+
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                dragArea.style.display = 'none';
+                fileInfo.style.display = 'block';
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        importForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            if (!fileInput.files[0]) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No File Selected',
+                    text: 'Please select a file to import'
+                });
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            Swal.fire({
+                title: 'Importing Data',
+                text: 'Please wait while we process your file...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: data.message
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred while importing the data'
+                });
+            });
+        });
+    });
+</script>

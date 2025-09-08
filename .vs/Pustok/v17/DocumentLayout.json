@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Mahir\\Desktop\\PartialView\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Mahir\\Saved Games\\PartialView\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\saved games\\partialview\\pustok.app\\areas\\manage\\views\\shared\\_importdatapartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\areas\\manage\\views\\shared\\_importdatapartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\saved games\\partialview\\pustok.app\\areas\\manage\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\areas\\manage\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|c:\\users\\mahir\\saved games\\partialview\\pustok.app\\areas\\manage\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51E757D6-9426-4842-99A3-2F986DEAB687}|Pustok.App\\Pustok.App.csproj|solutionrelative:pustok.app\\areas\\manage\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Views\\Book\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pustok.App\\Areas\\Manage\\Views\\Book\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Views\\Book\\Index.cshtml",
+              "RelativeToolTip": "Pustok.App\\Areas\\Manage\\Views\\Book\\Index.cshtml",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAAwGwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T17:42:44.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Pustok.App\\Areas\\Manage\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Pustok.App\\Areas\\Manage\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:42:38.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_ImportDataPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Views\\Shared\\_ImportDataPartial.cshtml",
+              "RelativeDocumentMoniker": "Pustok.App\\Areas\\Manage\\Views\\Shared\\_ImportDataPartial.cshtml",
+              "ToolTip": "C:\\Users\\Mahir\\Saved Games\\PartialView\\Pustok.App\\Areas\\Manage\\Views\\Shared\\_ImportDataPartial.cshtml",
+              "RelativeToolTip": "Pustok.App\\Areas\\Manage\\Views\\Shared\\_ImportDataPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T17:38:08.275Z",
+              "EditorCaption": ""
             }
           ]
         }

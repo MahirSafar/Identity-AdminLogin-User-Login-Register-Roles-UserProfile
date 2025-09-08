@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using Pustok.App;
 using Pustok.App.DAL.Context;
 using Pustok.App.Models;
@@ -25,11 +26,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.Password.RequireLowercase = true;
     opt.Password.RequireDigit = true;
     opt.User.RequireUniqueEmail = true;
+    opt.SignIn.RequireConfirmedEmail = true;
     opt.Password.RequiredLength = 6;
     opt.Lockout.MaxFailedAccessAttempts = 3;
     opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
     opt.Lockout.AllowedForNewUsers = true;
-}).AddEntityFrameworkStores<PustokDbContext>().AddErrorDescriber<CustomErrorDescriber>();
+}).AddEntityFrameworkStores<PustokDbContext>().AddErrorDescriber<CustomErrorDescriber>().AddDefaultTokenProviders();
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 var app = builder.Build();
 
 // Configure error handling

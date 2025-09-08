@@ -21,9 +21,13 @@ namespace Pustok.App.Areas.Manage.Controllers
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(adminLoginVm);
             }
-
             var user = await userManager.FindByNameAsync(adminLoginVm.Username);
             if(user == null || !await userManager.CheckPasswordAsync(user, adminLoginVm.Password))
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(adminLoginVm);
+            }
+            if (await userManager.IsInRoleAsync(user,"Member"))
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(adminLoginVm);
